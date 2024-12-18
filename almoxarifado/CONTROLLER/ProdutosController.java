@@ -13,12 +13,7 @@ public class ProdutosController {
 
     @Autowired
     private ProdutosService service;
-
-//    @PostMapping
-//    public Produtos salvar(@RequestBody Produtos produtos){
-//        return service.salvar(produtos);
-//    }
-
+    
     @PostMapping
     public ResponseEntity<Produtos> salvar(@RequestBody Produtos produtos){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(produtos))  ;
@@ -43,10 +38,7 @@ public class ProdutosController {
         return service.editar(id, produtos);
 
     }
-    //    @DeleteMapping("/{id}")
-    //    public void deletar(@PathVariable("id")Integer id){
-//        service.deletar(id);
-//    }
+
     @DeleteMapping
     public ResponseEntity<String>semDelete(){
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body("Metodo não permitido");
